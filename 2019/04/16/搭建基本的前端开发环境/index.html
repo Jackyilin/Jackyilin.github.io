@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="webpack,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="岁月神偷">
-<meta property="og:type" content="website">
-<meta property="og:title" content="陈奕霖博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="我们日常使用的前端开发环境应该是怎样的？我们可以尝试着把基本前端开发环境的需求列一下：  构建我们发布需要的 HTML、CSS、JS 文件 使用 CSS 预处理器来编写样式 处理和压缩图片 使用 Babel 来支持 ES 新特性 本地提供静态服务以方便开发调试  上述几项应该可以满足比较简单的前端项目开发环境需求了，下面会一一介绍如何配置 webpack 来满足这些需求。 关联 HTMLwebpa">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建基本的前端开发环境">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/搭建基本的前端开发环境/index.html">
 <meta property="og:site_name" content="陈奕霖博客">
-<meta property="og:description" content="岁月神偷">
+<meta property="og:description" content="我们日常使用的前端开发环境应该是怎样的？我们可以尝试着把基本前端开发环境的需求列一下：  构建我们发布需要的 HTML、CSS、JS 文件 使用 CSS 预处理器来编写样式 处理和压缩图片 使用 Babel 来支持 ES 新特性 本地提供静态服务以方便开发调试  上述几项应该可以满足比较简单的前端项目开发环境需求了，下面会一一介绍如何配置 webpack 来满足这些需求。 关联 HTMLwebpa">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-16T11:47:48.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈奕霖博客">
-<meta name="twitter:description" content="岁月神偷">
+<meta name="twitter:title" content="搭建基本的前端开发环境">
+<meta name="twitter:description" content="我们日常使用的前端开发环境应该是怎样的？我们可以尝试着把基本前端开发环境的需求列一下：  构建我们发布需要的 HTML、CSS、JS 文件 使用 CSS 预处理器来编写样式 处理和压缩图片 使用 Babel 来支持 ES 新特性 本地提供静态服务以方便开发调试  上述几项应该可以满足比较简单的前端项目开发环境需求了，下面会一一介绍如何配置 webpack 来满足这些需求。 关联 HTMLwebpa">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/16/搭建基本的前端开发环境/">
 
 
 
 
 
-  <title>陈奕霖博客</title>
+  <title>搭建基本的前端开发环境 | 陈奕霖博客</title>
   
 
 
@@ -147,8 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -263,420 +264,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/本地存储——从-Cookie-到-Web-Storage、IndexDB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈奕霖博客">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/jianli.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈奕霖博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/本地存储——从-Cookie-到-Web-Storage、IndexDB/" itemprop="url">本地存储——从 Cookie 到 Web Storage、IndexDB</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          随着移动网络的发展与演化，我们手机上现在除了有原生 App，还能跑“WebApp”——它即开即用，用完即走。一个优秀的 WebApp 甚至可以拥有和原生 App 媲美的功能和体验。
-我认为，WebApp 就是我们前端性能优化的产物，是我们前端工程师对体验不懈追求的结果，是 Web 网页在性能上向 N
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/本地存储——从-Cookie-到-Web-Storage、IndexDB/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/事件的节流（throttle）与防抖（debounce）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈奕霖博客">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/jianli.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈奕霖博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/事件的节流（throttle）与防抖（debounce）/" itemprop="url">事件的节流（throttle）与防抖（debounce）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          scroll 事件是一个非常容易被反复触发的事件。其实不止 scroll 事件，resize 事件、鼠标事件（比如 mousemove、mouseover 等）、键盘事件（keyup、keydown 等）都存在被频繁触发的风险。
-频繁触发回调导致的大量计算会引发页面的抖动甚至卡顿。为了规避这种情况，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/事件的节流（throttle）与防抖（debounce）/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/更好地使用-webpack-dev-server/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈奕霖博客">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/jianli.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈奕霖博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/更好地使用-webpack-dev-server/" itemprop="url">更好地使用 webpack-dev-server</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          在构建代码并部署到生产环境之前，我们需要一个本地环境，用于运行我们开发的代码。这个环境相当于提供了一个简单的服务器，用于访问 webpack 构建好的静态文件，我们日常开发时可以使用它来调试前端代码。
-之前在第 2 小节的启动静态服务部分，我们已经简单介绍过 webpack-dev-server 的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/更好地使用-webpack-dev-server/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -706,9 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/搭建基本的前端开发环境/" itemprop="url">搭建基本的前端开发环境</a></h1>
+          <h1 class="post-title" itemprop="name headline">搭建基本的前端开发环境</h1>
         
 
         <div class="post-meta">
@@ -768,26 +356,60 @@
       
 
       
-        
-          
-          我们日常使用的前端开发环境应该是怎样的？我们可以尝试着把基本前端开发环境的需求列一下：
+        <p>我们日常使用的前端开发环境应该是怎样的？我们可以尝试着把基本前端开发环境的需求列一下：</p>
+<ul>
+<li>构建我们发布需要的 HTML、CSS、JS 文件</li>
+<li>使用 CSS 预处理器来编写样式</li>
+<li>处理和压缩图片</li>
+<li>使用 Babel 来支持 ES 新特性</li>
+<li>本地提供静态服务以方便开发调试</li>
+</ul>
+<p>上述几项应该可以满足比较简单的前端项目开发环境需求了，下面会一一介绍如何配置 webpack 来满足这些需求。</p>
+<h2 id="关联-HTML"><a href="#关联-HTML" class="headerlink" title="关联 HTML"></a>关联 HTML</h2><p>webpack 默认从作为入口的 .js 文件进行构建（更多是基于 SPA 去考虑），但通常一个前端项目都是从一个页面（即 HTML）出发的，最简单的方法是，创建一个 HTML 文件，使用 <code>script</code> 标签直接引用构建好的 JS 文件，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;./dist/bundle.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>但是，如果我们的文件名或者路径会变化，例如使用 <code>[hash]</code> 来进行命名，那么最好是将 HTML 引用路径和我们的构建结果关联起来，这个时候我们可以使用 <a href="https://doc.webpack-china.org/plugins/html-webpack-plugin/" target="_blank" rel="noopener">html-webpack-plugin</a>。</p>
+<p>html-webpack-plugin 是一个独立的 node package，所以在使用之前我们需要先安装它，把它安装到项目的开发依赖中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install html-webpack-plugin -D </span><br><span class="line"></span><br><span class="line"># 或者</span><br><span class="line">yarn add html-webpack-plugin -D</span><br></pre></td></tr></table></figure>
+<p>然后在 webpack 配置中，将 html-webpack-plugin 添加到 plugins 列表中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  plugins: [</span><br><span class="line">    new HtmlWebpackPlugin(),</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样配置好之后，构建时 html-webpack-plugin 会为我们创建一个 HTML 文件，其中会引用构建出来的 JS 文件。实际项目中，默认创建的 HTML 文件并没有什么用，我们需要自己来写 HTML 文件，可以通过 html-webpack-plugin 的配置，传递一个写好的 HTML 模板：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  plugins: [</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      filename: &apos;index.html&apos;, // 配置输出文件名和路径</span><br><span class="line">      template: &apos;assets/index.html&apos;, // 配置文件模板</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，通过 html-webpack-plugin 就可以将我们的页面和构建 JS 关联起来，回归日常，从页面开始开发。如果需要添加多个页面关联，那么实例化多个 html-webpack-plugin， 并将它们都放到 <code>plugins</code> 字段数组中就可以了。</p>
+<p>更多配置这里就不展开讲解了，参考文档 <a href="https://github.com/jantimon/html-webpack-plugin" target="_blank" rel="noopener">html-webpack-plugin</a> 以及官方提供的例子 <a href="https://github.com/jantimon/html-webpack-plugin/tree/master/examples" target="_blank" rel="noopener">html-webpack-plugin/examples</a>。</p>
+<h2 id="构建-CSS"><a href="#构建-CSS" class="headerlink" title="构建 CSS"></a>构建 CSS</h2><p>我们编写 CSS，并且希望使用 webpack 来进行构建，为此，需要在配置中引入 loader 来解析和处理 CSS 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      // ...</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css/,</span><br><span class="line">        include: [</span><br><span class="line">          path.resolve(__dirname, &apos;src&apos;),</span><br><span class="line">        ],</span><br><span class="line">        use: [</span><br><span class="line">          &apos;style-loader&apos;,</span><br><span class="line">          &apos;css-loader&apos;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>style-loader 和 css-loader 都是单独的 node package，需要安装。</p>
+</blockquote>
+<p>我们创建一个 index.css 文件，并在 index.js 中引用它，然后进行构建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &quot;./index.css&quot;</span><br></pre></td></tr></table></figure>
+<p>可以发现，构建出来的文件并没有 CSS，先来看一下新增两个 loader 的作用：</p>
+<ul>
+<li>css-loader 负责解析 CSS 代码，主要是为了处理 CSS 中的依赖，例如 <code>@import</code> 和 <code>url()</code> 等引用外部文件的声明；</li>
+<li>style-loader 会将 css-loader 解析的结果转变成 JS 代码，运行时动态插入 <code>style</code> 标签来让 CSS 代码生效。</li>
+</ul>
+<p>经由上述两个 loader 的处理后，CSS 代码会转变为 JS，和 index.js 一起打包了。如果需要单独把 CSS 文件分离出来，我们需要使用 <a href="https://doc.webpack-china.org/plugins/extract-text-webpack-plugin" target="_blank" rel="noopener">extract-text-webpack-plugin</a> 插件。</p>
+<p>extract-text-webpack-plugin 这个插件在笔者写作时并未发布支持 webpack 4.x 的正式版本，所以安装的时候需要指定使用它的 alpha 版本：<code>npm install extract-text-webpack-plugin@next -D</code> 或者 <code>yarn add extract-text-webpack-plugin@next -D</code>。如果你用的是 webpack 3.x 版本，直接用 extract-text-webpack-plugin 现有的版本即可。</p>
+<p>看一个简单的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const ExtractTextPlugin = require(&apos;extract-text-webpack-plugin&apos;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/,</span><br><span class="line">        // 因为这个插件需要干涉模块转换的内容，所以需要使用它对应的 loader</span><br><span class="line">        use: ExtractTextPlugin.extract(&#123; </span><br><span class="line">          fallback: &apos;style-loader&apos;,</span><br><span class="line">          use: &apos;css-loader&apos;,</span><br><span class="line">        &#125;), </span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    // 引入插件，配置文件名，这里同样可以使用 [hash]</span><br><span class="line">    new ExtractTextPlugin(&apos;index.css&apos;),</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="CSS-预处理器"><a href="#CSS-预处理器" class="headerlink" title="CSS 预处理器"></a>CSS 预处理器</h2><p>在上述使用 CSS 的基础上，通常我们会使用 Less/Sass 等 CSS 预处理器，webpack 可以通过添加对应的 loader 来支持，以使用 Less 为例，我们可以在官方文档中找到对应的 <a href="https://doc.webpack-china.org/loaders/less-loader" target="_blank" rel="noopener">loader</a>。</p>
+<p>我们需要在上面的 webpack 配置中，添加一个配置来支持解析后缀为 .less 的文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.less$/,</span><br><span class="line">        // 因为这个插件需要干涉模块转换的内容，所以需要使用它对应的 loader</span><br><span class="line">        use: ExtractTextPlugin.extract(&#123; </span><br><span class="line">          fallback: &apos;style-loader&apos;,</span><br><span class="line">          use: [</span><br><span class="line">            &apos;css-loader&apos;, </span><br><span class="line">            &apos;less-loader&apos;,</span><br><span class="line">          ],</span><br><span class="line">        &#125;), </span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="处理图片文件"><a href="#处理图片文件" class="headerlink" title="处理图片文件"></a>处理图片文件</h2><p>在前端项目的样式中总会使用到图片，虽然我们已经提到 css-loader 会解析样式中用 <code>url()</code> 引用的文件路径，但是图片对应的 jpg/png/gif 等文件格式，webpack 处理不了。是的，我们只要添加一个处理图片的 loader 配置就可以了，现有的 file-loader 就是个不错的选择。</p>
+<p>file-loader 可以用于处理很多类型的文件，它的主要作用是直接输出文件，把构建后的文件路径返回。配置很简单，在 <code>rules</code>中添加一个字段，增加图片类型文件的解析配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.(png|jpg|gif)$/,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &apos;file-loader&apos;,</span><br><span class="line">            options: &#123;&#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更多关于 file-loader 的配置可以参考官方文档 <a href="https://webpack.js.org/loaders/file-loader/" target="_blank" rel="noopener">file-loader</a>。</p>
+<h2 id="使用-Babel"><a href="#使用-Babel" class="headerlink" title="使用 Babel"></a>使用 Babel</h2><p><a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a> 是一个让我们能够使用 ES 新特性的 JS 编译工具，我们可以在 webpack 中配置 Babel，以便使用 ES6、ES7 标准来编写 JS 代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.jsx?/, // 支持 js 和 jsx</span><br><span class="line">        include: [</span><br><span class="line">          path.resolve(__dirname, &apos;src&apos;), // src 目录下的才需要经过 babel-loader 处理</span><br><span class="line">        ],</span><br><span class="line">        loader: &apos;babel-loader&apos;,</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Babel 的相关配置可以在目录下使用 .babelrc 文件来处理，详细参考 Babel 官方文档 <a href="http://babeljs.io/docs/usage/babelrc/" target="_blank" rel="noopener">.babelrc</a>。</p>
+<h2 id="启动静态服务"><a href="#启动静态服务" class="headerlink" title="启动静态服务"></a>启动静态服务</h2><p>至此，我们完成了处理多种文件类型的 webpack 配置。我们可以使用 <a href="https://github.com/webpack/webpack-dev-server" target="_blank" rel="noopener">webpack-dev-server</a> 在本地开启一个简单的静态服务来进行开发。</p>
+<p>在项目下安装 webpack-dev-server，然后添加启动命令到 package.json 中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;build&quot;: &quot;webpack --mode production&quot;,</span><br><span class="line">  &quot;start&quot;: &quot;webpack-dev-server --mode development&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也可以全局安装 webpack-dev-server，但通常建议以项目开发依赖的方式进行安装，然后在 npm package 中添加启动脚本。</p>
+</blockquote>
+<p>尝试着运行 <code>npm run start</code> 或者 <code>yarn start</code>，然后就可以访问 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 来查看你的页面了。默认是访问 index.html，如果是其他页面要注意访问的 URL 是否正确。</p>
 
-构建我们发布需要的 HTML、CSS、JS 文件
-使用 CSS 预处理器来编写样式
-处理和压缩图片
-使用 Babel 来支持 ES 新特性
-本地提供静态服务以方便开发调试
-
-上述几项应该可以满足比较简单的前端项
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/搭建基本的前端开发环境/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
     
@@ -802,151 +424,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/优化前端资源加载/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈奕霖博客">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/jianli.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈奕霖博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/优化前端资源加载/" itemprop="url">优化前端资源加载</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          1 - 图片加载优化和代码压缩前面我们已经提及如何使用 webpack 来满足不同环境的构建需求，其中在生产环境构建时会做额外的一些工作，例如代码压缩等。这一部分的工作就是这一小节的主题，即优化前端资源的加载性能。
-我们总是希望浏览器在加载页面时用的时间越短越好，所以构建出来的文件应该越少越小越好，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/优化前端资源加载/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/优化前端资源加载/" rel="next" title="优化前端资源加载">
+                <i class="fa fa-chevron-left"></i> 优化前端资源加载
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/16/更好地使用-webpack-dev-server/" rel="prev" title="更好地使用 webpack-dev-server">
+                更好地使用 webpack-dev-server <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -956,14 +467,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -971,6 +479,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -991,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1054,6 +575,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关联-HTML"><span class="nav-number">1.</span> <span class="nav-text">关联 HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建-CSS"><span class="nav-number">2.</span> <span class="nav-text">构建 CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-预处理器"><span class="nav-number">3.</span> <span class="nav-text">CSS 预处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理图片文件"><span class="nav-number">4.</span> <span class="nav-text">处理图片文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Babel"><span class="nav-number">5.</span> <span class="nav-text">使用 Babel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动静态服务"><span class="nav-number">6.</span> <span class="nav-text">启动静态服务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1201,6 +738,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

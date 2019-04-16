@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="webpack,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="岁月神偷">
-<meta property="og:type" content="website">
-<meta property="og:title" content="陈奕霖博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="1 - 图片加载优化和代码压缩前面我们已经提及如何使用 webpack 来满足不同环境的构建需求，其中在生产环境构建时会做额外的一些工作，例如代码压缩等。这一部分的工作就是这一小节的主题，即优化前端资源的加载性能。 我们总是希望浏览器在加载页面时用的时间越短越好，所以构建出来的文件应该越少越小越好，一来减少浏览器需要发起请求的数量，二来减少下载静态资源的时间。 其实 webpack 把多个代码文件">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="优化前端资源加载">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/优化前端资源加载/index.html">
 <meta property="og:site_name" content="陈奕霖博客">
-<meta property="og:description" content="岁月神偷">
+<meta property="og:description" content="1 - 图片加载优化和代码压缩前面我们已经提及如何使用 webpack 来满足不同环境的构建需求，其中在生产环境构建时会做额外的一些工作，例如代码压缩等。这一部分的工作就是这一小节的主题，即优化前端资源的加载性能。 我们总是希望浏览器在加载页面时用的时间越短越好，所以构建出来的文件应该越少越小越好，一来减少浏览器需要发起请求的数量，二来减少下载静态资源的时间。 其实 webpack 把多个代码文件">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-16T11:55:59.368Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈奕霖博客">
-<meta name="twitter:description" content="岁月神偷">
+<meta name="twitter:title" content="优化前端资源加载">
+<meta name="twitter:description" content="1 - 图片加载优化和代码压缩前面我们已经提及如何使用 webpack 来满足不同环境的构建需求，其中在生产环境构建时会做额外的一些工作，例如代码压缩等。这一部分的工作就是这一小节的主题，即优化前端资源的加载性能。 我们总是希望浏览器在加载页面时用的时间越短越好，所以构建出来的文件应该越少越小越好，一来减少浏览器需要发起请求的数量，二来减少下载静态资源的时间。 其实 webpack 把多个代码文件">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/16/优化前端资源加载/">
 
 
 
 
 
-  <title>陈奕霖博客</title>
+  <title>优化前端资源加载 | 陈奕霖博客</title>
   
 
 
@@ -147,8 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -263,564 +264,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/本地存储——从-Cookie-到-Web-Storage、IndexDB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈奕霖博客">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/jianli.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈奕霖博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/本地存储——从-Cookie-到-Web-Storage、IndexDB/" itemprop="url">本地存储——从 Cookie 到 Web Storage、IndexDB</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          随着移动网络的发展与演化，我们手机上现在除了有原生 App，还能跑“WebApp”——它即开即用，用完即走。一个优秀的 WebApp 甚至可以拥有和原生 App 媲美的功能和体验。
-我认为，WebApp 就是我们前端性能优化的产物，是我们前端工程师对体验不懈追求的结果，是 Web 网页在性能上向 N
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/本地存储——从-Cookie-到-Web-Storage、IndexDB/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/事件的节流（throttle）与防抖（debounce）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈奕霖博客">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/jianli.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈奕霖博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/事件的节流（throttle）与防抖（debounce）/" itemprop="url">事件的节流（throttle）与防抖（debounce）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          scroll 事件是一个非常容易被反复触发的事件。其实不止 scroll 事件，resize 事件、鼠标事件（比如 mousemove、mouseover 等）、键盘事件（keyup、keydown 等）都存在被频繁触发的风险。
-频繁触发回调导致的大量计算会引发页面的抖动甚至卡顿。为了规避这种情况，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/事件的节流（throttle）与防抖（debounce）/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/更好地使用-webpack-dev-server/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈奕霖博客">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/jianli.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈奕霖博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/更好地使用-webpack-dev-server/" itemprop="url">更好地使用 webpack-dev-server</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          在构建代码并部署到生产环境之前，我们需要一个本地环境，用于运行我们开发的代码。这个环境相当于提供了一个简单的服务器，用于访问 webpack 构建好的静态文件，我们日常开发时可以使用它来调试前端代码。
-之前在第 2 小节的启动静态服务部分，我们已经简单介绍过 webpack-dev-server 的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/更好地使用-webpack-dev-server/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/搭建基本的前端开发环境/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈奕霖博客">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/jianli.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈奕霖博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/搭建基本的前端开发环境/" itemprop="url">搭建基本的前端开发环境</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          我们日常使用的前端开发环境应该是怎样的？我们可以尝试着把基本前端开发环境的需求列一下：
-
-构建我们发布需要的 HTML、CSS、JS 文件
-使用 CSS 预处理器来编写样式
-处理和压缩图片
-使用 Babel 来支持 ES 新特性
-本地提供静态服务以方便开发调试
-
-上述几项应该可以满足比较简单的前端项
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/搭建基本的前端开发环境/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -850,9 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/优化前端资源加载/" itemprop="url">优化前端资源加载</a></h1>
+          <h1 class="post-title" itemprop="name headline">优化前端资源加载</h1>
         
 
         <div class="post-meta">
@@ -912,19 +356,39 @@
       
 
       
-        
-          
-          1 - 图片加载优化和代码压缩前面我们已经提及如何使用 webpack 来满足不同环境的构建需求，其中在生产环境构建时会做额外的一些工作，例如代码压缩等。这一部分的工作就是这一小节的主题，即优化前端资源的加载性能。
-我们总是希望浏览器在加载页面时用的时间越短越好，所以构建出来的文件应该越少越小越好，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/16/优化前端资源加载/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h1 id="1-图片加载优化和代码压缩"><a href="#1-图片加载优化和代码压缩" class="headerlink" title="1 - 图片加载优化和代码压缩"></a>1 - 图片加载优化和代码压缩</h1><p>前面我们已经提及如何使用 webpack 来满足不同环境的构建需求，其中在生产环境构建时会做额外的一些工作，例如代码压缩等。这一部分的工作就是这一小节的主题，即优化前端资源的加载性能。</p>
+<p>我们总是希望浏览器在加载页面时用的时间越短越好，所以构建出来的文件应该越少越小越好，一来减少浏览器需要发起请求的数量，二来减少下载静态资源的时间。</p>
+<p>其实 webpack 把多个代码文件打包成几个必需的静态资源，已经很大程度减少了静态资源请求数量了，接下来我们来介绍下如何使用 webpack 实现更多的前端资源加载的优化需求。</p>
+<h2 id="CSS-Sprites"><a href="#CSS-Sprites" class="headerlink" title="CSS Sprites"></a>CSS Sprites</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS" target="_blank" rel="noopener">CSS Sprites</a> 技术是前端领域一种很常见的用于减少图片资源请求数的优化方式，这里不做详细的介绍。</p>
+<blockquote>
+<p>在了解 webpack 配置之前，需要明白 CSS Sprites 的原理。</p>
+</blockquote>
+<p>如果你使用的 webpack 3.x 版本，需要 CSS Sprites 的话，可以使用 <a href="https://github.com/mixtur/webpack-spritesmith" target="_blank" rel="noopener">webpack-spritesmith</a> 或者 <a href="https://github.com/kezoo/sprite-webpack-plugin" target="_blank" rel="noopener">sprite-webpack-plugin</a>。</p>
+<p>我们以 webpack-spritesmith 为例，先安装依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-spritesmith --save-dev</span><br></pre></td></tr></table></figure>
+<p>在 webpack 的配置中应用该插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">  loaders: [</span><br><span class="line">    // ... 这里需要有处理图片的 loader，如 file-loader</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line">resolve: &#123;</span><br><span class="line">  modules: [</span><br><span class="line">    &apos;node_modules&apos;, </span><br><span class="line">    &apos;spritesmith-generated&apos;, // webpack-spritesmith 生成所需文件的目录</span><br><span class="line">  ],</span><br><span class="line">&#125;,</span><br><span class="line">plugins: [</span><br><span class="line">  new SpritesmithPlugin(&#123;</span><br><span class="line">    src: &#123;</span><br><span class="line">      cwd: path.resolve(__dirname, &apos;src/ico&apos;), // 多个图片所在的目录</span><br><span class="line">      glob: &apos;*.png&apos; // 匹配图片的路径</span><br><span class="line">    &#125;,</span><br><span class="line">    target: &#123;</span><br><span class="line">      // 生成最终图片的路径</span><br><span class="line">      image: path.resolve(__dirname, &apos;src/spritesmith-generated/sprite.png&apos;), </span><br><span class="line">      // 生成所需 SASS/LESS/Stylus mixins 代码，我们使用 Stylus 预处理器做例子</span><br><span class="line">      css: path.resolve(__dirname, &apos;src/spritesmith-generated/sprite.styl&apos;), </span><br><span class="line">    &#125;,</span><br><span class="line">    apiOptions: &#123;</span><br><span class="line">      cssImageRef: &quot;~sprite.png&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;),</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<p>在你需要的样式代码中引入 <code>sprite.styl</code> 后调用需要的 mixins 即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@import &apos;~sprite.styl&apos;</span><br><span class="line"></span><br><span class="line">.close-button</span><br><span class="line">    sprite($close)</span><br><span class="line">.open-button</span><br><span class="line">    sprite($open)</span><br></pre></td></tr></table></figure>
+<p>更多的 webpack-spritesmith 配置可以参考：<a href="https://github.com/mixtur/webpack-spritesmith#config" target="_blank" rel="noopener">Config of webpack-spritesmith</a>。</p>
+<p>遗憾的是，上面提到的这两个 plugin 还没更新到支持 webpack 4.x 版本，如果你使用的是 webpack 4.x，你需要配合使用 <a href="https://github.com/postcss/postcss" target="_blank" rel="noopener">postcss</a> 和 <a href="https://github.com/2createStudio/postcss-sprites" target="_blank" rel="noopener">postcss-sprites</a>，才能实现 CSS Sprites 的相关构建。</p>
+<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><p>在一般的项目中，图片资源会占前端资源的很大一部分，既然代码都进行压缩了，占大头的图片就更不用说了。</p>
+<p>我们之前提及使用 file-loader 来处理图片文件，在此基础上，我们再添加一个 <a href="https://github.com/tcoopman/image-webpack-loader" target="_blank" rel="noopener">image-webpack-loader</a> 来压缩图片文件。简单的配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /.*\.(gif|png|jpe?g|svg|webp)$/i,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &apos;file-loader&apos;,</span><br><span class="line">            options: &#123;&#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &apos;image-webpack-loader&apos;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              mozjpeg: &#123; // 压缩 jpeg 的配置</span><br><span class="line">                progressive: true,</span><br><span class="line">                quality: 65</span><br><span class="line">              &#125;,</span><br><span class="line">              optipng: &#123; // 使用 imagemin-optipng 压缩 png，enable: false 为关闭</span><br><span class="line">                enabled: false,</span><br><span class="line">              &#125;,</span><br><span class="line">              pngquant: &#123; // 使用 imagemin-pngquant 压缩 png</span><br><span class="line">                quality: &apos;65-90&apos;,</span><br><span class="line">                speed: 4</span><br><span class="line">              &#125;,</span><br><span class="line">              gifsicle: &#123; // 压缩 gif 的配置</span><br><span class="line">                interlaced: false,</span><br><span class="line">              &#125;,</span><br><span class="line">              webp: &#123; // 开启 webp，会把 jpg 和 png 图片压缩为 webp 格式</span><br><span class="line">                quality: 75</span><br><span class="line">              &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>image-webpack-loader 的压缩是使用 <a href="https://github.com/imagemin" target="_blank" rel="noopener">imagemin</a> 提供的一系列图片压缩类库来处理的，如果需要进一步了解详细的配置，可以查看对应类库的官方文档 <a href="https://github.com/tcoopman/image-webpack-loader#usage" target="_blank" rel="noopener">usage of image-webpack-loader</a>。</p>
+<h2 id="使用-DataURL"><a href="#使用-DataURL" class="headerlink" title="使用 DataURL"></a>使用 DataURL</h2><p>有的时候我们的项目中会有一些很小的图片，因为某些缘故并不想使用 CSS Sprites 的方式来处理（譬如小图片不多，因此引入 CSS Sprites 感觉麻烦），那么我们可以在 webpack 中使用 url-loader 来处理这些很小的图片。</p>
+<p><a href="https://github.com/webpack-contrib/url-loader" target="_blank" rel="noopener">url-loader</a> 和 <a href="https://github.com/webpack-contrib/file-loader" target="_blank" rel="noopener">file-loader</a> 的功能类似，但是在处理文件的时候，可以通过配置指定一个大小，当文件小于这个配置值时，url-loader 会将其转换为一个 base64 编码的 DataURL，配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.(png|jpg|gif)$/,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &apos;url-loader&apos;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              limit: 8192, // 单位是 Byte，当文件小于 8KB 时作为 DataURL 处理</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更多关于 url-loader 的配置可以参考官方文档 <a href="https://github.com/webpack-contrib/url-loader" target="_blank" rel="noopener">url-loader</a>，一般情况仅使用 <code>limit</code> 即可。</p>
+<h2 id="代码压缩"><a href="#代码压缩" class="headerlink" title="代码压缩"></a>代码压缩</h2><p>webpack 4.x 版本运行时，mode 为 production 即会启动压缩 JS 代码的插件，而对于 webpack 3.x，使用压缩 JS 代码插件的方式也已经介绍过了。在生产环境中，压缩 JS 代码基本是一个必不可少的步骤，这样可以大大减小 JavaScript 的体积，相关内容这里不再赘述。</p>
+<p>除了 JS 代码之外，我们一般还需要 HTML 和 CSS 文件，这两种文件也都是可以压缩的，虽然不像 JS 的压缩那么彻底（替换掉长变量等），只能移除空格换行等无用字符，但也能在一定程度上减小文件大小。在 webpack 中的配置使用也不是特别麻烦，所以我们通常也会使用。</p>
+<p>对于 HTML 文件，之前介绍的 html-webpack-plugin 插件可以帮助我们生成需要的 HTML 并对其进行压缩：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  // ...</span><br><span class="line">  plugins: [</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      filename: &apos;index.html&apos;, // 配置输出文件名和路径</span><br><span class="line">      template: &apos;assets/index.html&apos;, // 配置文件模板</span><br><span class="line">      minify: &#123; // 压缩 HTML 的配置</span><br><span class="line">        minifyCSS: true, // 压缩 HTML 中出现的 CSS 代码</span><br><span class="line">        minifyJS: true // 压缩 HTML 中出现的 JS 代码</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如上，使用 <code>minify</code> 字段配置就可以使用 HTML 压缩，这个插件是使用 <a href="https://github.com/kangax/html-minifier#options-quick-reference" target="_blank" rel="noopener">html-minifier</a> 来实现 HTML 代码压缩的，<code>minify</code> 下的配置项直接透传给 html-minifier，配置项参考 html-minifier 文档即可。</p>
+<p>对于 CSS 文件，我们之前介绍过用来处理 CSS 文件的 css-loader，也提供了压缩 CSS 代码的功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      // ...</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css/,</span><br><span class="line">        include: [</span><br><span class="line">          path.resolve(__dirname, &apos;src&apos;),</span><br><span class="line">        ],</span><br><span class="line">        use: [</span><br><span class="line">          &apos;style-loader&apos;,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &apos;css-loader&apos;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              minimize: true, // 使用 css 的压缩功能</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 css-loader 的选项中配置 <code>minimize</code> 字段为 <code>true</code> 来使用 CSS 压缩代码的功能。css-loader 是使用 <a href="http://cssnano.co/" target="_blank" rel="noopener">cssnano</a> 来压缩代码的，<code>minimize</code> 字段也可以配置为一个对象，来将相关配置传递给 cssnano。更多详细内容请参考 <a href="http://cssnano.co/" target="_blank" rel="noopener">cssnano</a> 官方文档。</p>
+
       
     </div>
     
@@ -939,14 +403,40 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/浏览器渲染机制/" rel="next" title="浏览器渲染机制">
+                <i class="fa fa-chevron-left"></i> 浏览器渲染机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/16/搭建基本的前端开发环境/" rel="prev" title="搭建基本的前端开发环境">
+                搭建基本的前端开发环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -956,14 +446,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -971,6 +458,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -991,8 +482,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1054,6 +554,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-图片加载优化和代码压缩"><span class="nav-number">1.</span> <span class="nav-text">1 - 图片加载优化和代码压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-Sprites"><span class="nav-number">1.1.</span> <span class="nav-text">CSS Sprites</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片压缩"><span class="nav-number">1.2.</span> <span class="nav-text">图片压缩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-DataURL"><span class="nav-number">1.3.</span> <span class="nav-text">使用 DataURL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码压缩"><span class="nav-number">1.4.</span> <span class="nav-text">代码压缩</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1201,6 +717,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

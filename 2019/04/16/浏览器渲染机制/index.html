@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="浏览器,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="岁月神偷">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="##浏览器加载资源的过程：浏览器渲染机制: 通过输入域名，然后由dns服务器解析出ip地址，发送http请求，服务器处理http请求，发送资源文件，然后首先返回index.html文件，通过html解释器解析html，生成dom树；再通过css解释器解析css，生成css树，二者结合生成渲染树，接着进行绘制页面。 ##浏览器的渲染机制：1、浏览器使用流式布局模型 (Flow Based Layou">
+<meta name="keywords" content="浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器渲染机制">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/浏览器渲染机制/index.html">
 <meta property="og:site_name" content="陈奕霖博客">
-<meta property="og:description" content="岁月神偷">
+<meta property="og:description" content="##浏览器加载资源的过程：浏览器渲染机制: 通过输入域名，然后由dns服务器解析出ip地址，发送http请求，服务器处理http请求，发送资源文件，然后首先返回index.html文件，通过html解释器解析html，生成dom树；再通过css解释器解析css，生成css树，二者结合生成渲染树，接着进行绘制页面。 ##浏览器的渲染机制：1、浏览器使用流式布局模型 (Flow Based Layou">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-13T18:13:31.713Z">
+<meta property="og:updated_time" content="2019-04-16T10:42:22.817Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="岁月神偷">
+<meta name="twitter:title" content="浏览器渲染机制">
+<meta name="twitter:description" content="##浏览器加载资源的过程：浏览器渲染机制: 通过输入域名，然后由dns服务器解析出ip地址，发送http请求，服务器处理http请求，发送资源文件，然后首先返回index.html文件，通过html解释器解析html，生成dom树；再通过css解释器解析css，生成css树，二者结合生成渲染树，接着进行绘制页面。 ##浏览器的渲染机制：1、浏览器使用流式布局模型 (Flow Based Layou">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/16/浏览器渲染机制/">
 
 
 
 
 
-  <title>categories | 陈奕霖博客</title>
+  <title>浏览器渲染机制 | 陈奕霖博客</title>
   
 
 
@@ -266,40 +267,160 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/浏览器渲染机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈奕霖博客">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/jianli.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈奕霖博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                2 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web前端/">web前端</a><span class="category-list-count">10</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">浏览器渲染机制</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>##浏览器加载资源的过程：<br>浏览器渲染机制: 通过输入域名，<br>然后由dns服务器解析出ip地址，发送http请求，<br>服务器处理http请求，发送资源文件，<br>然后首先返回index.html文件，通过html解释器解析html，生成dom树；再通过css解释器解析css，生成css树，二者结合生成渲染树，接着进行绘制页面。</p>
+<p>##浏览器的渲染机制：<br>1、浏览器使用流式布局模型 (Flow Based Layout)。<br>2、浏览器会把HTML解析成DOM，把CSS解析成CSSOM，DOM和CSSOM合并就产生了Render Tree。<br>3、有了RenderTree，我们就知道了所有节点的样式，然后计算他们在页面上的大小和位置，最后把节点绘制到页面上。<br>4、由于浏览器使用流式布局，对Render Tree的计算通常只需要遍历一次就可以完成，但table及其内部元素除外，他们可能需要多次计算，通常要花3倍于同等元素的时间，这也是为什么要避免使用table布局的原因之一。</p>
+<p>##注意事项<br>1、css和js的加载都阻塞了dom数的解析；<br>2、dom节点对象有一个render方法(渲染成真正的dom树)</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/浏览器/" rel="tag"># 浏览器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/webpack-如何解析代码模块路径/" rel="next" title="webpack 如何解析代码模块路径">
+                <i class="fa fa-chevron-left"></i> webpack 如何解析代码模块路径
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/16/优化前端资源加载/" rel="prev" title="优化前端资源加载">
+                优化前端资源加载 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="岁月神偷">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="scroll 事件是一个非常容易被反复触发的事件。其实不止 scroll 事件，resize 事件、鼠标事件（比如 mousemove、mouseover 等）、键盘事件（keyup、keydown 等）都存在被频繁触发的风险。 频繁触发回调导致的大量计算会引发页面的抖动甚至卡顿。为了规避这种情况，我们需要一些手段来控制事件被触发的频率。就是在这样的背景下，throttle（事件节流）和 debo">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事件的节流（throttle）与防抖（debounce）">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/事件的节流（throttle）与防抖（debounce）/index.html">
 <meta property="og:site_name" content="陈奕霖博客">
-<meta property="og:description" content="岁月神偷">
+<meta property="og:description" content="scroll 事件是一个非常容易被反复触发的事件。其实不止 scroll 事件，resize 事件、鼠标事件（比如 mousemove、mouseover 等）、键盘事件（keyup、keydown 等）都存在被频繁触发的风险。 频繁触发回调导致的大量计算会引发页面的抖动甚至卡顿。为了规避这种情况，我们需要一些手段来控制事件被触发的频率。就是在这样的背景下，throttle（事件节流）和 debo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-13T18:13:31.713Z">
+<meta property="og:updated_time" content="2019-04-16T11:55:29.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="岁月神偷">
+<meta name="twitter:title" content="事件的节流（throttle）与防抖（debounce）">
+<meta name="twitter:description" content="scroll 事件是一个非常容易被反复触发的事件。其实不止 scroll 事件，resize 事件、鼠标事件（比如 mousemove、mouseover 等）、键盘事件（keyup、keydown 等）都存在被频繁触发的风险。 频繁触发回调导致的大量计算会引发页面的抖动甚至卡顿。为了规避这种情况，我们需要一些手段来控制事件被触发的频率。就是在这样的背景下，throttle（事件节流）和 debo">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/16/事件的节流（throttle）与防抖（debounce）/">
 
 
 
 
 
-  <title>categories | 陈奕霖博客</title>
+  <title>事件的节流（throttle）与防抖（debounce） | 陈奕霖博客</title>
   
 
 
@@ -266,40 +267,176 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/事件的节流（throttle）与防抖（debounce）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈奕霖博客">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/jianli.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈奕霖博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                2 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web前端/">web前端</a><span class="category-list-count">10</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">事件的节流（throttle）与防抖（debounce）</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>scroll 事件是一个非常容易被反复触发的事件。其实不止 scroll 事件，resize 事件、鼠标事件（比如 mousemove、mouseover 等）、键盘事件（keyup、keydown 等）都存在被频繁触发的风险。</p>
+<p>频繁触发回调导致的大量计算会引发页面的抖动甚至卡顿。为了规避这种情况，我们需要一些手段来控制事件被触发的频率。就是在这样的背景下，throttle（事件节流）和 debounce（事件防抖）出现了。</p>
+<h2 id="“节流”与“防抖”的本质"><a href="#“节流”与“防抖”的本质" class="headerlink" title="“节流”与“防抖”的本质"></a>“节流”与“防抖”的本质</h2><p>这两个东西都以<strong>闭包</strong>的形式存在。</p>
+<p>它们通过对事件对应的回调函数进行包裹、以自由变量的形式缓存时间信息，最后用 setTimeout 来控制事件的触发频率。</p>
+<h2 id="Throttle：-第一个人说了算"><a href="#Throttle：-第一个人说了算" class="headerlink" title="Throttle： 第一个人说了算"></a>Throttle： 第一个人说了算</h2><p>throttle 的中心思想在于：在某段时间内，不管你触发了多少次回调，我都只认第一次，并在计时结束时给予响应。</p>
+<p>先给大家讲个小故事：现在有一个旅客刚下了飞机，需要用车，于是打电话叫了该机场唯一的一辆机场大巴来接。司机开到机场，心想来都来了，多接几个人一起走吧，这样这趟才跑得值——我等个十分钟看看。于是司机一边打开了计时器，一边招呼后面的客人陆陆续续上车。在这十分钟内，后面下飞机的乘客都只能乘这一辆大巴，十分钟过去后，不管后面还有多少没挤上车的乘客，这班车都必须发走。</p>
+<p>在这个故事里，“司机” 就是我们的节流阀，他控制发车的时机；“乘客”就是因为我们频繁操作事件而不断涌入的回调任务，它需要接受“司机”的安排；而“计时器”，就是我们上文提到的以自由变量形式存在的时间信息，它是“司机”决定发车的依据；最后“发车”这个动作，就对应到回调函数的执行。</p>
+<p>总结下来，所谓的“节流”，是通过在一段时间内<strong>无视后来产生的回调请求</strong>来实现的。只要一位客人叫了车，司机就会为他开启计时器，一定的时间内，后面需要乘车的客人都得排队上这一辆车，谁也无法叫到更多的车。</p>
+<p>对应到实际的交互上是一样一样的：每当用户触发了一次 scroll 事件，我们就为这个触发操作开启计时器。一段时间内，后续所有的 scroll 事件都会被当作“一辆车的乘客”——它们无法触发新的 scroll 回调。直到“一段时间”到了，第一次触发的 scroll 事件对应的回调才会执行，而“一段时间内”触发的后续的 scroll 回调都会被节流阀无视掉。</p>
+<p>理解了大致的思路，我们现在一起实现一个 throttle：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// fn是我们需要包装的事件回调, interval是时间间隔的阈值</span><br><span class="line">function throttle(fn, interval) &#123;</span><br><span class="line">  // last为上一次触发回调的时间</span><br><span class="line">  let last = 0</span><br><span class="line">  </span><br><span class="line">  // 将throttle处理结果当作函数返回</span><br><span class="line">  return function () &#123;</span><br><span class="line">      // 保留调用时的this上下文</span><br><span class="line">      let context = this</span><br><span class="line">      // 保留调用时传入的参数</span><br><span class="line">      let args = arguments</span><br><span class="line">      // 记录本次触发回调的时间</span><br><span class="line">      let now = +new Date()</span><br><span class="line">      </span><br><span class="line">      // 判断上次触发的时间和本次触发的时间差是否小于时间间隔的阈值</span><br><span class="line">      if (now - last &gt;= interval) &#123;</span><br><span class="line">      // 如果时间间隔大于我们设定的时间间隔阈值，则执行回调</span><br><span class="line">          last = now;</span><br><span class="line">          fn.apply(context, args);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 用throttle来包装scroll的回调</span><br><span class="line">const better_scroll = throttle(() =&gt; console.log(&apos;触发了滚动事件&apos;), 1000)</span><br><span class="line"></span><br><span class="line">document.addEventListener(&apos;scroll&apos;, better_scroll)</span><br></pre></td></tr></table></figure>
+<h2 id="Debounce：-最后一个人说了算"><a href="#Debounce：-最后一个人说了算" class="headerlink" title="Debounce： 最后一个人说了算"></a>Debounce： 最后一个人说了算</h2><p>防抖的中心思想在于：我会等你到底。在某段时间内，不管你触发了多少次回调，我都只认最后一次。</p>
+<p>继续讲司机开车的故事。这次的司机比较有耐心。第一个乘客上车后，司机开始计时（比如说十分钟）。十分钟之内，如果又上来了一个乘客，司机会把计时器清零，重新开始等另一个十分钟（延迟了等待）。直到有这么一位乘客，从他上车开始，后续十分钟都没有新乘客上车，司机会认为确实没有人需要搭这趟车了，才会把车开走。</p>
+<p>我们对比 throttle 来理解 debounce：在throttle的逻辑里，“第一个人说了算”，它只为第一个乘客计时，时间到了就执行回调。而 debounce 认为，“最后一个人说了算”，debounce 会为每一个新乘客设定新的定时器。</p>
+<p>我们基于上面的理解，一起来写一个 debounce：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// fn是我们需要包装的事件回调, delay是每次推迟执行的等待时间</span><br><span class="line">function debounce(fn, delay) &#123;</span><br><span class="line">  // 定时器</span><br><span class="line">  let timer = null</span><br><span class="line">  </span><br><span class="line">  // 将debounce处理结果当作函数返回</span><br><span class="line">  return function () &#123;</span><br><span class="line">    // 保留调用时的this上下文</span><br><span class="line">    let context = this</span><br><span class="line">    // 保留调用时传入的参数</span><br><span class="line">    let args = arguments</span><br><span class="line"></span><br><span class="line">    // 每次事件被触发时，都去清除之前的旧定时器</span><br><span class="line">    if(timer) &#123;</span><br><span class="line">        clearTimeout(timer)</span><br><span class="line">    &#125;</span><br><span class="line">    // 设立新定时器</span><br><span class="line">    timer = setTimeout(function () &#123;</span><br><span class="line">      fn.apply(context, args)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 用debounce来包装scroll的回调</span><br><span class="line">const better_scroll = debounce(() =&gt; console.log(&apos;触发了滚动事件&apos;), 1000)</span><br><span class="line"></span><br><span class="line">document.addEventListener(&apos;scroll&apos;, better_scroll)</span><br></pre></td></tr></table></figure>
+<h2 id="用-Throttle-来优化-Debounce"><a href="#用-Throttle-来优化-Debounce" class="headerlink" title="用 Throttle 来优化 Debounce"></a>用 Throttle 来优化 Debounce</h2><p>debounce 的问题在于它“太有耐心了”。试想，如果用户的操作十分频繁——他每次都不等 debounce 设置的 delay 时间结束就进行下一次操作，于是每次 debounce 都为该用户重新生成定时器，回调函数被延迟了不计其数次。频繁的延迟会导致用户迟迟得不到响应，用户同样会产生“这个页面卡死了”的观感。</p>
+<p>为了避免弄巧成拙，我们需要借力 throttle 的思想，打造一个“有底线”的 debounce——等你可以，但我有我的原则：delay 时间内，我可以为你重新生成定时器；但只要delay的时间到了，我必须要给用户一个响应。这个 throttle 与 debounce “合体”思路，已经被很多成熟的前端库应用到了它们的加强版 throttle 函数的实现中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">// fn是我们需要包装的事件回调, delay是时间间隔的阈值</span><br><span class="line">function throttle(fn, delay) &#123;</span><br><span class="line">  // last为上一次触发回调的时间, timer是定时器</span><br><span class="line">  let last = 0, timer = null</span><br><span class="line">  // 将throttle处理结果当作函数返回</span><br><span class="line">  </span><br><span class="line">  return function () &#123; </span><br><span class="line">    // 保留调用时的this上下文</span><br><span class="line">    let context = this</span><br><span class="line">    // 保留调用时传入的参数</span><br><span class="line">    let args = arguments</span><br><span class="line">    // 记录本次触发回调的时间</span><br><span class="line">    let now = +new Date()</span><br><span class="line">    </span><br><span class="line">    // 判断上次触发的时间和本次触发的时间差是否小于时间间隔的阈值</span><br><span class="line">    if (now - last &lt; delay) &#123;</span><br><span class="line">    // 如果时间间隔小于我们设定的时间间隔阈值，则为本次触发操作设立一个新的定时器</span><br><span class="line">       clearTimeout(timer)</span><br><span class="line">       timer = setTimeout(function () &#123;</span><br><span class="line">          last = now</span><br><span class="line">          fn.apply(context, args)</span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        // 如果时间间隔超出了我们设定的时间间隔阈值，那就不等了，无论如何要反馈给用户一次响应</span><br><span class="line">        last = now</span><br><span class="line">        fn.apply(context, args)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 用新的throttle包装scroll的回调</span><br><span class="line">const better_scroll = throttle(() =&gt; console.log(&apos;触发了滚动事件&apos;), 1000)</span><br><span class="line"></span><br><span class="line">document.addEventListener(&apos;scroll&apos;, better_scroll)</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/更好地使用-webpack-dev-server/" rel="next" title="更好地使用 webpack-dev-server">
+                <i class="fa fa-chevron-left"></i> 更好地使用 webpack-dev-server
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/16/本地存储——从-Cookie-到-Web-Storage、IndexDB/" rel="prev" title="本地存储——从 Cookie 到 Web Storage、IndexDB">
+                本地存储——从 Cookie 到 Web Storage、IndexDB <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -332,8 +469,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -395,6 +541,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#“节流”与“防抖”的本质"><span class="nav-number">1.</span> <span class="nav-text">“节流”与“防抖”的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Throttle：-第一个人说了算"><span class="nav-number">2.</span> <span class="nav-text">Throttle： 第一个人说了算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debounce：-最后一个人说了算"><span class="nav-number">3.</span> <span class="nav-text">Debounce： 最后一个人说了算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-Throttle-来优化-Debounce"><span class="nav-number">4.</span> <span class="nav-text">用 Throttle 来优化 Debounce</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
