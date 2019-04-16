@@ -88,7 +88,7 @@
 <meta property="og:description" content="为什么要使用 Vuex当我们使用 Vue.js 来开发一个单页应用时，经常会遇到一些组件间共享的数据或状态，或是需要通过 props 深层传递的一些数据。在应用规模较小的时候，我们会使用 props、事件等常用的父子组件的组件间通信方法，或者是通过事件总线来进行任意两个组件的通信。但是当应用逐渐复杂后，问题就开始出现了，这样的通信方式会导致数据流异常地混乱。  这个时候，我们就需要用到我们的状态管">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/2/9/1617a011064cc43e?w=632&h=361&f=png&s=24741">
-<meta property="og:updated_time" content="2019-04-16T10:17:20.611Z">
+<meta property="og:updated_time" content="2019-04-16T10:21:01.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuex 状态管理的工作原理">
 <meta name="twitter:description" content="为什么要使用 Vuex当我们使用 Vue.js 来开发一个单页应用时，经常会遇到一些组件间共享的数据或状态，或是需要通过 props 深层传递的一些数据。在应用规模较小的时候，我们会使用 props、事件等常用的父子组件的组件间通信方法，或者是通过事件总线来进行任意两个组件的通信。但是当应用逐渐复杂后，问题就开始出现了，这样的通信方式会导致数据流异常地混乱。  这个时候，我们就需要用到我们的状态管">
@@ -389,8 +389,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dispatch (type, payload) &#123;</span><br><span class="line">    const entry = this._actions[type];</span><br><span class="line"></span><br><span class="line">    return entry.length &gt; 1</span><br><span class="line">    ? Promise.all(entry.map(handler =&gt; handler(payload)))</span><br><span class="line">    : entry[0](payload);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>同样的，取出 <code>_actions</code> 中的所有对应 action，将其执行，如果有多个则用 <code>Promise.all</code> 进行包装。</p>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>理解 Vuex 的核心在于理解其如何与 Vue 本身结合，如何利用 Vue 的响应式机制来实现核心 Store 的「响应式化」。</p>
-<p>Vuex 本身代码不多且设计优雅，非常值得一读，想阅读源码的同学请看<a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex源码</a>。</p>
-<p>注：本节代码参考<a href="https://github.com/answershuto/VueDemo/blob/master/%E3%80%8AVuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E3%80%8B.js" target="_blank" rel="noopener">《Vuex状态管理的工作原理》</a>。</p>
 
       
     </div>
