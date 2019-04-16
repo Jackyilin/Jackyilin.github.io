@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="构建基础篇 1：你需要了解的包管理工具与配置项任何一个项目的构建离不开工具和统一的管理标准，在项目开发和维护过程中，我们需要了解安装包的相应工具和配置文件，以此来有效的进行项目的迭代和版本的更新，为项目提供基本的运行环境。本文将详细介绍构建 Vue.js 项目相关的依赖包安装工具和相应的配置文件，为大家提供参考。 介绍相信大家对于包管理工具的使用一定不会陌生，毕竟它已经成为前端项目中必不可少的一部">
+<meta name="description" content="为什么要使用 Vuex当我们使用 Vue.js 来开发一个单页应用时，经常会遇到一些组件间共享的数据或状态，或是需要通过 props 深层传递的一些数据。在应用规模较小的时候，我们会使用 props、事件等常用的父子组件的组件间通信方法，或者是通过事件总线来进行任意两个组件的通信。但是当应用逐渐复杂后，问题就开始出现了，这样的通信方式会导致数据流异常地混乱。  这个时候，我们就需要用到我们的状态管">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm">
-<meta property="og:url" content="http://yoursite.com/2019/04/13/article/index.html">
+<meta property="og:title" content="Vuex 状态管理的工作原理">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/Vuex-状态管理的工作原理/index.html">
 <meta property="og:site_name" content="陈奕霖博客">
-<meta property="og:description" content="构建基础篇 1：你需要了解的包管理工具与配置项任何一个项目的构建离不开工具和统一的管理标准，在项目开发和维护过程中，我们需要了解安装包的相应工具和配置文件，以此来有效的进行项目的迭代和版本的更新，为项目提供基本的运行环境。本文将详细介绍构建 Vue.js 项目相关的依赖包安装工具和相应的配置文件，为大家提供参考。 介绍相信大家对于包管理工具的使用一定不会陌生，毕竟它已经成为前端项目中必不可少的一部">
+<meta property="og:description" content="为什么要使用 Vuex当我们使用 Vue.js 来开发一个单页应用时，经常会遇到一些组件间共享的数据或状态，或是需要通过 props 深层传递的一些数据。在应用规模较小的时候，我们会使用 props、事件等常用的父子组件的组件间通信方法，或者是通过事件总线来进行任意两个组件的通信。但是当应用逐渐复杂后，问题就开始出现了，这样的通信方式会导致数据流异常地混乱。  这个时候，我们就需要用到我们的状态管">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/6/27/16441d9cefe89881?w=988&h=396&f=png&s=56257">
-<meta property="og:updated_time" content="2019-04-16T09:22:19.507Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/2/9/1617a011064cc43e?w=632&h=361&f=png&s=24741">
+<meta property="og:updated_time" content="2019-04-16T10:17:20.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="npm">
-<meta name="twitter:description" content="构建基础篇 1：你需要了解的包管理工具与配置项任何一个项目的构建离不开工具和统一的管理标准，在项目开发和维护过程中，我们需要了解安装包的相应工具和配置文件，以此来有效的进行项目的迭代和版本的更新，为项目提供基本的运行环境。本文将详细介绍构建 Vue.js 项目相关的依赖包安装工具和相应的配置文件，为大家提供参考。 介绍相信大家对于包管理工具的使用一定不会陌生，毕竟它已经成为前端项目中必不可少的一部">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/6/27/16441d9cefe89881?w=988&h=396&f=png&s=56257">
+<meta name="twitter:title" content="Vuex 状态管理的工作原理">
+<meta name="twitter:description" content="为什么要使用 Vuex当我们使用 Vue.js 来开发一个单页应用时，经常会遇到一些组件间共享的数据或状态，或是需要通过 props 深层传递的一些数据。在应用规模较小的时候，我们会使用 props、事件等常用的父子组件的组件间通信方法，或者是通过事件总线来进行任意两个组件的通信。但是当应用逐渐复杂后，问题就开始出现了，这样的通信方式会导致数据流异常地混乱。  这个时候，我们就需要用到我们的状态管">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/2/9/1617a011064cc43e?w=632&h=361&f=png&s=24741">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/13/article/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/16/Vuex-状态管理的工作原理/">
 
 
 
 
 
-  <title>npm | 陈奕霖博客</title>
+  <title>Vuex 状态管理的工作原理 | 陈奕霖博客</title>
   
 
 
@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/article/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/Vuex-状态管理的工作原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈奕霖博客">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">npm</h1>
+          <h1 class="post-title" itemprop="name headline">Vuex 状态管理的工作原理</h1>
         
 
         <div class="post-meta">
@@ -358,45 +358,39 @@
       
 
       
-        <h1 id="构建基础篇-1：你需要了解的包管理工具与配置项"><a href="#构建基础篇-1：你需要了解的包管理工具与配置项" class="headerlink" title="构建基础篇 1：你需要了解的包管理工具与配置项"></a>构建基础篇 1：你需要了解的包管理工具与配置项</h1><p>任何一个项目的构建离不开工具和统一的管理标准，在项目开发和维护过程中，我们需要了解安装包的相应工具和配置文件，以此来有效的进行项目的迭代和版本的更新，为项目提供基本的运行环境。本文将详细介绍构建 Vue.js 项目相关的依赖包安装工具和相应的配置文件，为大家提供参考。</p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>相信大家对于包管理工具的使用一定不会陌生，毕竟它已经成为前端项目中必不可少的一部分，为了照顾部分零基础用户，这里我们做一个简单的介绍。</p>
-<h3 id="1-npm-与-package-json"><a href="#1-npm-与-package-json" class="headerlink" title="1. npm 与 package.json"></a>1. npm 与 package.json</h3><p>npm 是 Node Package Manager 的简称，顾名思义，它是 node 的包管理工具，也是目前世界上最大的开源库生态系统。官方地址为：<a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a>，你可以在里面找到数以万计的开源包。</p>
-<p>使用 npm 包下载量统计工具，比如 <a href="https://npm-stat.com/" target="_blank" rel="noopener">npm-start</a>，我们可以查看相应包在一定时间范围内的下载量数据，下面是 <code>vue-cli</code> 和 <code>@vue/cli</code> 的下载量趋势：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/6/27/16441d9cefe89881?w=988&amp;h=396&amp;f=png&amp;s=56257" alt></p>
-<p>在上篇文章中我们介绍了使用 vue-cli 来构建自己的项目，并生成了相应的目录结构，而在最外层目录中，我们可以看到有 <code>package.json</code> 这一文件，该文件便是我们需要了解的包管理文件。</p>
-<p>我们先来看一下该文件里面的内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;name&quot;: &quot;my-project&quot;, </span><br><span class="line">    &quot;version&quot;: &quot;0.1.0&quot;, </span><br><span class="line">    &quot;private&quot;: true, </span><br><span class="line">    &quot;scripts&quot;: &#123;</span><br><span class="line">        &quot;serve&quot;: &quot;vue-cli-service serve&quot;,</span><br><span class="line">        &quot;build&quot;: &quot;vue-cli-service build&quot;,</span><br><span class="line">        &quot;lint&quot;: &quot;vue-cli-service lint&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;dependencies&quot;: &#123;</span><br><span class="line">        &quot;vue&quot;: &quot;^2.5.16&quot;,</span><br><span class="line">        &quot;vue-router&quot;: &quot;^3.0.1&quot;,</span><br><span class="line">        &quot;vuex&quot;: &quot;^3.0.1&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;devDependencies&quot;: &#123;</span><br><span class="line">        &quot;@vue/cli-plugin-babel&quot;: &quot;^3.0.0-beta.15&quot;,</span><br><span class="line">        &quot;@vue/cli-service&quot;: &quot;^3.0.0-beta.15&quot;,</span><br><span class="line">        &quot;less&quot;: &quot;^3.0.4&quot;,</span><br><span class="line">        &quot;less-loader&quot;: &quot;^4.1.0&quot;,</span><br><span class="line">        &quot;vue-template-compiler&quot;: &quot;^2.5.16&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;browserslist&quot;: [</span><br><span class="line">        &quot;&gt; 1%&quot;,</span><br><span class="line">        &quot;last 2 versions&quot;,</span><br><span class="line">        &quot;not ie &lt;= 8&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到该文件是由一系列键值对构成的 JSON 对象，每一个键值对都有其相应的作用，比如 scripts 脚本命令的配置，我们在终端启动项目运行的 <code>npm run serve</code> 命令其实便是执行了 scripts 配置下的 serve 项命令 <code>vue-cli-service serve</code> ，我们可以在 scripts 下自己修改或添加相应的项目命令。</p>
-<p>而 dependencies 和 devDependencies 分别为项目生产环境和开发环境的依赖包配置，也就是说像 <code>@vue/cli-service</code> 这样只用于项目开发时的包我们可以放在 devDependencies 下，但像 <code>vue-router</code> 这样结合在项目上线代码中的包应该放在 dependencies 下。</p>
-<p>详细的package.json文件配置项介绍可以参考：<a href="https://docs.npmjs.com/files/package.json" target="_blank" rel="noopener">package.json</a></p>
-<h3 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2. 常用命令"></a>2. 常用命令</h3><p>在简单的了解了 package.json 文件后，我们再来看下包管理工具的常用命令。一般在项目的构建和开发阶段，我们常用的 npm 命令有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 生成 package.json 文件（需要手动选择配置）</span><br><span class="line">npm init</span><br><span class="line"></span><br><span class="line"># 生成 package.json 文件（使用默认配置）</span><br><span class="line">npm init -y</span><br><span class="line"></span><br><span class="line"># 一键安装 package.json 下的依赖包</span><br><span class="line">npm i</span><br><span class="line"></span><br><span class="line"># 在项目中安装包名为 xxx 的依赖包（配置在 dependencies 下）</span><br><span class="line">npm i xxx</span><br><span class="line"></span><br><span class="line"># 在项目中安装包名为 xxx 的依赖包（配置在 dependencies 下）</span><br><span class="line">npm i xxx --save</span><br><span class="line"></span><br><span class="line"># 在项目中安装包名为 xxx 的依赖包（配置在 devDependencies 下）</span><br><span class="line">npm i xxx --save-dev</span><br><span class="line"></span><br><span class="line"># 全局安装包名为 xxx 的依赖包</span><br><span class="line">npm i -g xxx</span><br><span class="line"></span><br><span class="line"># 运行 package.json 中 scripts 下的命令</span><br><span class="line">npm run xxx</span><br></pre></td></tr></table></figure>
-<p>比较陌生但实用的有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 打开 xxx 包的主页</span><br><span class="line">npm home xxx</span><br><span class="line"></span><br><span class="line"># 打开 xxx 包的代码仓库</span><br><span class="line">npm repo xxx</span><br><span class="line"></span><br><span class="line"># 将当前模块发布到 npmjs.com，需要先登录</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
-<p>相比 npm，<a href="https://yarnpkg.com/zh-Hans/" target="_blank" rel="noopener">yarn</a> 相信大家也不会陌生，它是由 facebook 推出并开源的包管理工具，具有速度快，安全性高，可靠性强等主要优势，它的常用命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 生成 package.json 文件（需要手动选择配置）</span><br><span class="line">yarn init</span><br><span class="line"></span><br><span class="line"># 生成 package.json 文件（使用默认配置）</span><br><span class="line">yarn init -y</span><br><span class="line"></span><br><span class="line"># 一键安装 package.json 下的依赖包</span><br><span class="line">yarn</span><br><span class="line"></span><br><span class="line"># 在项目中安装包名为 xxx 的依赖包（配置在 dependencies 下）,同时 yarn.lock 也会被更新</span><br><span class="line">yarn add xxx</span><br><span class="line"></span><br><span class="line"># 在项目中安装包名为 xxx 的依赖包（配置在配置在 devDependencies 下）,同时 yarn.lock 也会被更新</span><br><span class="line">yarn add xxx --dev</span><br><span class="line"></span><br><span class="line"># 全局安装包名为 xxx 的依</span><br><span class="line">yarn global add xxx</span><br><span class="line"></span><br><span class="line"># 运行 package.json 中 scripts 下的命令</span><br><span class="line">yarn xxx</span><br></pre></td></tr></table></figure>
-<p>比较陌生但实用的有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 列出 xxx 包的版本信息</span><br><span class="line">yarn outdated xxx</span><br><span class="line"></span><br><span class="line"># 验证当前项目 package.json 里的依赖版本和 yarn 的 lock 文件是否匹配</span><br><span class="line">yarn check</span><br><span class="line"></span><br><span class="line"># 将当前模块发布到 npmjs.com，需要先登录</span><br><span class="line">yarn publish</span><br></pre></td></tr></table></figure>
-<p>以上便是 npm 与 yarn 包管理工具的常用及实用命令，需要注意的是，本小册的讲解将会优先使用 yarn 命令进行包的管理和安装。</p>
-<h3 id="3-第三方插件配置"><a href="#3-第三方插件配置" class="headerlink" title="3. 第三方插件配置"></a>3. 第三方插件配置</h3><p>在上方的 package.json 文件中我们可以看到有 browserslist 这一配置项，那么该配置项便是这里所说的第三方插件配置，该配置的主要作用是用于在不同的前端工具之间共享目标浏览器和 Node.js 的版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;browserslist&quot;: [</span><br><span class="line">    &quot;&gt; 1%&quot;, // 表示包含所有使用率 &gt; 1% 的浏览器</span><br><span class="line">    &quot;last 2 versions&quot;, // 表示包含浏览器最新的两个版本</span><br><span class="line">    &quot;not ie &lt;= 8&quot; // 表示不包含 ie8 及以下版本</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>比如像 <a href="https://www.npmjs.com/package/autoprefixer" target="_blank" rel="noopener">autoprefixer</a> 这样的插件需要把你写的 css 样式适配不同的浏览器，那么这里要针对哪些浏览器呢，就是上面配置中所包含的。</p>
-<p>而如果写在 autoprefixer 的配置中，那么会存在一个问题，万一其他第三方插件也需要浏览器的包含范围用于实现其特定的功能，那么就又得在其配置中设置一遍，这样就无法得以共用。所以在 package.json 中配置 browserslist 的属性使得所有工具都会自动找到目标浏览器。</p>
-<p>当然，你也可以单独写在 .browserslistrc 的文件中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Browsers that we support </span><br><span class="line"></span><br><span class="line">&gt; 1%</span><br><span class="line">last 2 versions</span><br><span class="line">not ie &lt;= 8</span><br></pre></td></tr></table></figure>
-<p>至于它是如何去衡量浏览器的使用率和版本的，数据都是来源于 <a href="https://caniuse.com/" target="_blank" rel="noopener">Can I Use</a>。你也可以访问 <a href="http://browserl.ist/" target="_blank" rel="noopener">http://browserl.ist/</a> 去搜索配置项所包含的浏览器列表，比如搜索 <code>last 2 versions</code> 会得到你想要的结果，或者在项目终端运行如下命令查看：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx browserslist</span><br></pre></td></tr></table></figure>
-<p>除了上述插件的配置，项目中常用的插件还有：babel、postcss 等，有兴趣的同学可以访问其官网进行了解。</p>
-<h3 id="4-vue-cli-包安装"><a href="#4-vue-cli-包安装" class="headerlink" title="4. vue-cli 包安装"></a>4. vue-cli 包安装</h3><p>在上述的教程中，我们使用 npm 或 yarn 进行了包的安装和配置，除了以上两种方法，vue-cli 3.x 还提供了其专属的 <code>vue add</code> 命令，但是需要注意的是该命令安装的包是以 @vue/cli-plugin 或者 vue-cli-plugin 开头，即只能安装 Vue 集成的包。</p>
-<p>比如运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue add jquery</span><br></pre></td></tr></table></figure>
-<p>其会安装 <code>vue-cli-plugin-jquery</code>，很显然这个插件不存在便会安装失败。又或者你运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue add @vue/eslint</span><br></pre></td></tr></table></figure>
-<p>其会解析为完整的包名 <code>@vue/cli-plugin-eslint</code>，因为该包存在所以会安装成功。</p>
-<p>同时，不同于 npm 或 yarn 的安装， <code>vue add</code> 不仅会将包安装到你的项目中，其还会改变项目的代码或文件结构，所以安装前最好提交你的代码至仓库。</p>
-<p>另外 vue add 中还有两个特例，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 安装 vue-router</span><br><span class="line">vue add router</span><br><span class="line"></span><br><span class="line"># 安装 vuex</span><br><span class="line">vue add vuex</span><br></pre></td></tr></table></figure>
-<p>这两个命令会直接安装 vue-router 和 vuex 并改变你的代码结构，使你的项目集成这两个配置，并不会去安装添加 vue-cli-plugin 或 @vue/cli-plugin 前缀的包。</p>
+        <h2 id="为什么要使用-Vuex"><a href="#为什么要使用-Vuex" class="headerlink" title="为什么要使用 Vuex"></a>为什么要使用 Vuex</h2><p>当我们使用 Vue.js 来开发一个单页应用时，经常会遇到一些组件间共享的数据或状态，或是需要通过 props 深层传递的一些数据。在应用规模较小的时候，我们会使用 props、事件等常用的父子组件的组件间通信方法，或者是通过事件总线来进行任意两个组件的通信。但是当应用逐渐复杂后，问题就开始出现了，这样的通信方式会导致数据流异常地混乱。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/2/9/1617a011064cc43e?w=632&amp;h=361&amp;f=png&amp;s=24741" alt></p>
+<p>这个时候，我们就需要用到我们的状态管理工具 Vuex 了。Vuex 是一个专门为 Vue.js 框架设计的、专门用来对于 Vue.js 应用进行状态管理的库。它借鉴了 Flux、redux 的基本思想，将状态抽离到全局，形成一个 Store。因为 Vuex 内部采用了 new Vue 来将 Store 内的数据进行「响应式化」，所以 Vuex 是一款利用 Vue 内部机制的库，与 Vue 高度契合，与 Vue 搭配使用显得更加简单高效，但缺点是不能与其他的框架（如 react）配合使用。</p>
+<p>本节将简单介绍 Vuex 最核心的内部机制，起个抛砖引玉的作用，想了解更多细节可以参考笔者 <a href="https://github.com/answershuto" target="_blank" rel="noopener">Github</a> 上的另一篇文章 <a href="https://github.com/answershuto/learnVue/blob/master/docs/Vuex%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.MarkDown" target="_blank" rel="noopener">《Vuex源码解析》</a>或者直接阅读 <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex源码</a>。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Vue.js 提供了一个 <code>Vue.use</code> 的方法来安装插件，内部会调用插件提供的 <code>install</code> 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(Vuex);</span><br></pre></td></tr></table></figure>
+<p>所以我们的插件需要提供一个 <code>install</code> 方法来安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let Vue;</span><br><span class="line"></span><br><span class="line">export default install (_Vue) &#123;</span><br><span class="line">    Vue.mixin(&#123; beforeCreate: vuexInit &#125;);</span><br><span class="line">    Vue = _Vue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们采用 <code>Vue.mixin</code> 方法将 <code>vuexInit</code> 方法混淆进 <code>beforeCreate</code> 钩子中，并用 <code>Vue</code> 保存 Vue 对象。那么 <code>vuexInit</code> 究竟实现了什么呢？</p>
+<p>我们知道，在使用 Vuex 的时候，我们需要将 <code>store</code> 传入到 Vue 实例中去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*将store放入Vue创建时的option中*/</span><br><span class="line">new Vue(&#123;</span><br><span class="line">    el: &apos;#app&apos;,</span><br><span class="line">    store</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>但是我们却在每一个 vm 中都可以访问该 <code>store</code>，这个就需要靠 <code>vuexInit</code> 了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function vuexInit () &#123;</span><br><span class="line">    const options = this.$options;</span><br><span class="line">    if (options.store) &#123;</span><br><span class="line">        this.$store = options.store;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        this.$store = options.parent.$store;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为之前已经用<code>Vue.mixin</code> 方法将 <code>vuexInit</code> 方法混淆进 <code>beforeCreate</code> 钩子中，所以每一个 vm 实例都会调用 <code>vuexInit</code> 方法。</p>
+<p>如果是根节点（<code>$options</code>中存在 <code>store</code> 说明是根节点），则直接将 <code>options.store</code> 赋值给 <code>this.$store</code>。否则则说明不是根节点，从父节点的 <code>$store</code> 中获取。</p>
+<p>通过这步的操作，我们已经可以在任意一个 vm 中通过 <code>this.$store</code> 来访问 <code>Store</code> 的实例啦～</p>
+<h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><h3 id="数据的响应式化"><a href="#数据的响应式化" class="headerlink" title="数据的响应式化"></a>数据的响应式化</h3><p>首先我们需要在 <code>Store</code> 的构造函数中对 <code>state</code> 进行「响应式化」。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">constructor () &#123;</span><br><span class="line">    this._vm = new Vue(&#123;</span><br><span class="line">        data: &#123;</span><br><span class="line">            $$state: this.state</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>熟悉「响应式」的同学肯定知道，这个步骤以后，<code>state</code> 会将需要的依赖收集在 <code>Dep</code> 中，在被修改时更新对应视图。我们来看一个小例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">let globalData = &#123;</span><br><span class="line">    d: &apos;hello world&apos;</span><br><span class="line">&#125;;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">    data () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            $$state: &#123;</span><br><span class="line">                globalData</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">/* modify */</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    globalData.d = &apos;hi~&apos;;</span><br><span class="line">&#125;, 1000);</span><br><span class="line"></span><br><span class="line">Vue.prototype.globalData = globalData;</span><br></pre></td></tr></table></figure>
+<p>任意模板中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;&#123;globalData.d&#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>上述代码在全局有一个 <code>globalData</code>，它被传入一个 <code>Vue</code> 对象的 <code>data</code> 中，之后在任意 Vue 模板中对该变量进行展示，因为此时 <code>globalData</code> 已经在 Vue 的 <code>prototype</code> 上了所以直接通过 <code>this.prototype</code> 访问，也就是在模板中的 <code></code>。此时，<code>setTimeout</code> 在 1s 之后将 <code>globalData.d</code> 进行修改，我们发现模板中的 <code>globalData.d</code> 发生了变化。其实上述部分就是 Vuex 依赖 Vue 核心实现数据的“响应式化”。</p>
+<p>讲完了 Vuex 最核心的通过 Vue 进行数据的「响应式化」，接下来我们再来介绍两个 <code>Store</code> 的 API。</p>
+<h3 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h3><p>首先是 <code>commit</code> 方法，我们知道 <code>commit</code> 方法是用来触发 <code>mutation</code> 的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">commit (type, payload, _options) &#123;</span><br><span class="line">    const entry = this._mutations[type];</span><br><span class="line">    entry.forEach(function commitIterator (handler) &#123;</span><br><span class="line">        handler(payload);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从 <code>_mutations</code> 中取出对应的 mutation，循环执行其中的每一个 mutation。</p>
+<h3 id="dispatch"><a href="#dispatch" class="headerlink" title="dispatch"></a>dispatch</h3><p><code>dispatch</code> 同样道理，用于触发 action，可以包含异步状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dispatch (type, payload) &#123;</span><br><span class="line">    const entry = this._actions[type];</span><br><span class="line"></span><br><span class="line">    return entry.length &gt; 1</span><br><span class="line">    ? Promise.all(entry.map(handler =&gt; handler(payload)))</span><br><span class="line">    : entry[0](payload);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样的，取出 <code>_actions</code> 中的所有对应 action，将其执行，如果有多个则用 <code>Promise.all</code> 进行包装。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>理解 Vuex 的核心在于理解其如何与 Vue 本身结合，如何利用 Vue 的响应式机制来实现核心 Store 的「响应式化」。</p>
+<p>Vuex 本身代码不多且设计优雅，非常值得一读，想阅读源码的同学请看<a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex源码</a>。</p>
+<p>注：本节代码参考<a href="https://github.com/answershuto/VueDemo/blob/master/%E3%80%8AVuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E3%80%8B.js" target="_blank" rel="noopener">《Vuex状态管理的工作原理》</a>。</p>
 
       
     </div>
@@ -427,15 +421,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/04/16/批量异步更新策略及-nextTick-原理/" rel="next" title="批量异步更新策略及 nextTick 原理">
+                <i class="fa fa-chevron-left"></i> 批量异步更新策略及 nextTick 原理
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/16/响应式基本原理/" rel="prev" title="响应式基本原理">
-                响应式基本原理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#构建基础篇-1：你需要了解的包管理工具与配置项"><span class="nav-number">1.</span> <span class="nav-text">构建基础篇 1：你需要了解的包管理工具与配置项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-npm-与-package-json"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. npm 与 package.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用命令"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-第三方插件配置"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 第三方插件配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-vue-cli-包安装"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. vue-cli 包安装</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用-Vuex"><span class="nav-number">1.</span> <span class="nav-text">为什么要使用 Vuex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Store"><span class="nav-number">3.</span> <span class="nav-text">Store</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的响应式化"><span class="nav-number">3.1.</span> <span class="nav-text">数据的响应式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commit"><span class="nav-number">3.2.</span> <span class="nav-text">commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dispatch"><span class="nav-number">3.3.</span> <span class="nav-text">dispatch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">4.</span> <span class="nav-text">最后</span></a></li></ol></div>
             
 
           </div>
